@@ -1,29 +1,42 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { I18nProvider } from "@/lib/i18n";
+import { AnimatedBackground } from "@/components/AnimatedBackground";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { Experience } from "@/components/Experience";
+import { Tools } from "@/components/Tools";
+import { Leadership } from "@/components/Leadership";
+import { Certifications } from "@/components/Certifications";
+import { Contact } from "@/components/Contact";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Charolin Louisa Aipassa — Informatics Engineering Student" },
+      { name: "description", content: "Portfolio of Charolin Louisa Aipassa — Informatics Engineering student, AI community builder, and student leader at Universitas Sanata Dharma." },
+      { property: "og:title", content: "Charolin Louisa Aipassa — Portfolio" },
+      { property: "og:description", content: "Technology, leadership, and community impact." },
+      { property: "og:type", content: "website" },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <I18nProvider>
+      <AnimatedBackground />
+      <Navbar />
+      <main className="relative">
+        <Hero />
+        <About />
+        <Experience />
+        <Tools />
+        <Leadership />
+        <Certifications />
+        <Contact />
+      </main>
+    </I18nProvider>
   );
 }
