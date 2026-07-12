@@ -6,9 +6,12 @@ import { Award, X, ZoomIn } from "lucide-react";
 import certImg from "@/assets/certificate.jpeg";
 import bemImg from "@/assets/bem-fst.jpeg";
 
+import gendigitalCert from "@/assets/gendigital-cert.png";
+
 const certs = [
-  { img: certImg, title: "Ketua Panitia — Pelepasan Wisuda September 2025", org: "FST Universitas Sanata Dharma", id: "852/SERTIF/DKN/FST/XII/2025", featured: true },
-  { img: bemImg, title: "Anggota MEDKOMINFO BEM FST", org: "FST Universitas Sanata Dharma", id: "016/SERTIF/DKN/FST/III/2026", featured: false },
+  { img: certImg, title: "Ketua Panitia — Pelepasan Wisuda September 2025", org: "FST Universitas Sanata Dharma", id: "852/SERTIF/DKN/FST/XII/2025", date: "Sep 2025", desc: "Led the faculty-wide graduation send-off committee, coordinating logistics, media, and ceremony flow.", featured: true },
+  { img: gendigitalCert, title: "Head of Social Media Division", org: "GenDigital Academy Yogyakarta", id: "Signed by Polar Osaka, Founder", date: "Mar 2025 — Jun 2026", desc: "Recognized for leading the Social Media Division at GenDigital Yogyakarta — driving content strategy, brand voice, and community growth across platforms.", featured: false },
+  { img: bemImg, title: "Anggota MEDKOMINFO BEM FST", org: "FST Universitas Sanata Dharma", id: "016/SERTIF/DKN/FST/III/2026", date: "2024 — 2025", desc: "Contributed to the Media & Communications division of the student executive board.", featured: false },
 ];
 
 export function Certifications() {
