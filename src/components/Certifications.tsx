@@ -47,7 +47,9 @@ export function Certifications() {
               </div>
               <h3 className="mt-3 font-display text-2xl font-bold">{certs[0].title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{certs[0].org}</p>
-              <p className="mt-1 text-xs font-mono text-primary/70">{certs[0].id}</p>
+              <p className="mt-1 text-[11px] font-mono text-primary/60 uppercase tracking-wider">{certs[0].date}</p>
+              <p className="mt-3 text-sm text-foreground/80 leading-relaxed">{certs[0].desc}</p>
+              <p className="mt-3 text-xs font-mono text-primary/70">{certs[0].id}</p>
             </div>
           </div>
         </motion.div>
@@ -59,18 +61,26 @@ export function Certifications() {
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5 }}
               onClick={() => setOpen(idx + 1)}
-              className="group rounded-3xl glass p-3 hover:glow-border transition-all cursor-pointer">
-              <div className="overflow-hidden rounded-2xl">
+              className="group rounded-3xl glass p-3 hover:glow-border hover:-translate-y-1 transition-all cursor-pointer">
+              <div className="overflow-hidden rounded-2xl relative">
                 <img src={c.img} alt={c.title} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-all">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity rounded-full glass-strong px-3 py-1.5 inline-flex items-center gap-2 text-xs font-semibold">
+                    <ZoomIn className="h-3.5 w-3.5 text-primary" /> {t.certs.view}
+                  </div>
+                </div>
               </div>
               <div className="p-4">
-                <h4 className="font-display font-bold">{c.title}</h4>
+                <h4 className="font-display font-bold leading-tight">{c.title}</h4>
                 <p className="text-xs text-muted-foreground mt-1">{c.org}</p>
+                <p className="mt-1 text-[10px] font-mono text-primary/60 uppercase tracking-wider">{c.date}</p>
+                <p className="mt-2 text-xs text-foreground/70 leading-relaxed line-clamp-3">{c.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
 
       <AnimatePresence>
         {open !== null && (
