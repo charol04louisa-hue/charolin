@@ -16,9 +16,9 @@ const dict = {
     },
     experience: { title: "Experience", subtitle: "Roles, communities & initiatives I've led or shaped.",
       items: [
-        { org: "AI For Everyone", role: "Content & Community", period: "2024 — Present", desc: "Helping democratize AI literacy in Indonesia through educational media reaching 11.6k+ followers.", metric: "1M views / 30d", tag: "AI Community" },
-        { org: "Grow With AI", role: "Contributor", period: "2024 — Present", desc: "AI learning platform empowering people to be more productive, smarter, and ready for the future.", metric: "21.3k views / 30d", tag: "EdTech" },
-        { org: "GenDigital Academy Yogyakarta", role: "Branch Member", period: "2024 — Present", desc: "Yogyakarta branch of GenDigital — enthusiastic digital learners giving back to the community.", metric: "14k views / 30d", tag: "Digital Skills" },
+        { org: "AI For Everyone", role: "Content & Community", period: "2025 — Present", desc: "Helping democratize AI literacy in Indonesia through educational media reaching 11.6k+ followers.", metric: "1M views / 30d", tag: "AI Community" },
+        { org: "Grow With AI", role: "Contributor", period: "2026 — Present", desc: "AI learning platform empowering people to be more productive, smarter, and ready for the future.", metric: "21.3k views / 30d", tag: "EdTech" },
+        { org: "GenDigital Academy Yogyakarta", role: "Branch Member", period: "2025 — 2026", desc: "Yogyakarta branch of GenDigital — enthusiastic digital learners giving back to the community.", metric: "14k views / 30d", tag: "Digital Skills" },
         { org: "BEM FST USD — MEDKOMINFO", role: "Member", period: "Nov 2024 — Nov 2025", desc: "Member of the Faculty of Science & Technology Student Executive Board, Media & Communication division.", metric: "Faculty-wide", tag: "Student Gov" },
       ],
     },
