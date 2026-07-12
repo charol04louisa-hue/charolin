@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import { SectionHeader } from "./SectionHeader";
-import { Brain, Users, Rocket, Code2 } from "lucide-react";
+import { Brain, Users, Rocket, Code2, Instagram } from "lucide-react";
 
 export function About() {
   const { t } = useI18n();
@@ -14,7 +14,21 @@ export function About() {
   return (
     <section id="about" className="relative py-32 px-6">
       <div className="mx-auto max-w-6xl">
-        <SectionHeader eyebrow="01 — About" title={t.about.title} />
+        <SectionHeader
+          eyebrow="01 — About"
+          title={t.about.title}
+          titleRight={
+            <a
+              href="https://instagram.com/charolin.sa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm font-semibold text-foreground/90 hover:text-primary hover:glow-border transition-all"
+            >
+              <Instagram className="h-4 w-4 text-primary" />
+              charolin.sa
+            </a>
+          }
+        />
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
           <motion.p
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}

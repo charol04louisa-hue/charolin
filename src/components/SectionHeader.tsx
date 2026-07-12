@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export function SectionHeader({ eyebrow, title, subtitle }: { eyebrow?: string; title: string; subtitle?: string }) {
+export function SectionHeader({ eyebrow, title, subtitle, titleRight }: { eyebrow?: string; title: string; subtitle?: string; titleRight?: React.ReactNode }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
@@ -12,7 +12,10 @@ export function SectionHeader({ eyebrow, title, subtitle }: { eyebrow?: string; 
           {eyebrow}
         </div>
       )}
-      <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight gradient-text">{title}</h2>
+      <div className="flex items-center gap-4 flex-wrap">
+        <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight gradient-text">{title}</h2>
+        {titleRight}
+      </div>
       {subtitle && <p className="mt-3 text-muted-foreground text-lg">{subtitle}</p>}
     </motion.div>
   );
