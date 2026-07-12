@@ -46,9 +46,9 @@ const dict = {
     },
     experience: { title: "Pengalaman", subtitle: "Peran, komunitas, dan inisiatif yang saya pimpin.",
       items: [
-        { org: "AI For Everyone", role: "Konten & Komunitas", period: "2024 — Sekarang", desc: "Mendemokratisasi literasi AI di Indonesia melalui media edukatif dengan 11,6rb+ pengikut.", metric: "1jt tayangan / 30h", tag: "Komunitas AI" },
-        { org: "Grow With AI", role: "Kontributor", period: "2024 — Sekarang", desc: "Platform belajar AI untuk membuat orang lebih produktif, pintar, dan siap masa depan.", metric: "21,3rb tayangan / 30h", tag: "EdTech" },
-        { org: "GenDigital Academy Yogyakarta", role: "Anggota Cabang", period: "2024 — Sekarang", desc: "Cabang Yogyakarta GenDigital — pembelajar digital yang memberi kembali pada komunitas.", metric: "14rb tayangan / 30h", tag: "Skill Digital" },
+        { org: "AI For Everyone", role: "Konten & Komunitas", period: "2025 — Sekarang", desc: "Mendemokratisasi literasi AI di Indonesia melalui media edukatif dengan 11,6rb+ pengikut.", metric: "1jt tayangan / 30h", tag: "Komunitas AI" },
+        { org: "Grow With AI", role: "Kontributor", period: "2026 — Sekarang", desc: "Platform belajar AI untuk membuat orang lebih produktif, pintar, dan siap masa depan.", metric: "21,3rb tayangan / 30h", tag: "EdTech" },
+        { org: "GenDigital Academy Yogyakarta", role: "Anggota Cabang", period: "2025 — 2026", desc: "Cabang Yogyakarta GenDigital — pembelajar digital yang memberi kembali pada komunitas.", metric: "14rb tayangan / 30h", tag: "Skill Digital" },
         { org: "BEM FST USD — MEDKOMINFO", role: "Anggota", period: "Nov 2024 — Nov 2025", desc: "Anggota BEM Fakultas Sains & Teknologi, divisi Media & Komunikasi.", metric: "Tingkat Fakultas", tag: "BEM" },
       ],
     },
