@@ -15,8 +15,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Charolin Louisa Aipassa — Informatics Engineering Student" },
       { name: "description", content: "Portfolio of Charolin Louisa Aipassa — Informatics Engineering student, AI community builder, and student leader at Universitas Sanata Dharma." },
-      { property: "og:title", content: "Charolin Louisa Aipassa — Portfolio" },
-      { property: "og:description", content: "Technology, leadership, and community impact." },
+      { property: "og:title", content: "Charolin Louisa Aipassa — Informatics Engineering Student" },
+      { property: "og:description", content: "Portfolio of Charolin Louisa Aipassa — Informatics Engineering student, AI community builder, and student leader at Universitas Sanata Dharma." },
       { property: "og:type", content: "website" },
     ],
   }),
