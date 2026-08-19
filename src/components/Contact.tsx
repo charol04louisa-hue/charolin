@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
-import { Mail, Instagram, Linkedin, Github, ArrowRight } from "lucide-react";
+import { Instagram, Linkedin, ArrowRight } from "lucide-react";
+
+const IG_USERNAME = "charolin.sa";
+const IG_URL = `https://instagram.com/${IG_USERNAME}`;
 
 export function Contact() {
   const { t } = useI18n();
   const socials = [
-    { Icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { Icon: Github, href: "https://github.com", label: "GitHub" },
-    { Icon: Mail, href: "mailto:hello@example.com", label: "Email" },
+    { Icon: Instagram, href: IG_URL, label: "Instagram" },
+    { Icon: Linkedin, href: `https://www.linkedin.com/in/${IG_USERNAME}`, label: "LinkedIn" },
   ];
   return (
     <section id="contact" className="relative py-32 px-6">
@@ -28,10 +29,10 @@ export function Contact() {
           <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight gradient-text">{t.contact.title}</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">{t.contact.subtitle}</p>
 
-          <motion.a href="mailto:charolin.aipassa@example.com"
+          <motion.a href={IG_URL} target="_blank" rel="noreferrer"
             whileHover={{ scale: 1.03 }}
             className="group mt-10 inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-glow-strong)] transition-all">
-            <Mail className="h-5 w-5" /> {t.contact.cta}
+            <Instagram className="h-5 w-5" /> @{IG_USERNAME}
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </motion.a>
 
