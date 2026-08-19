@@ -29,10 +29,10 @@ export function Contact() {
           <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight gradient-text">{t.contact.title}</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">{t.contact.subtitle}</p>
 
-          <motion.a href="mailto:charolin.aipassa@example.com"
+          <motion.a href={IG_URL} target="_blank" rel="noreferrer"
             whileHover={{ scale: 1.03 }}
             className="group mt-10 inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-glow-strong)] transition-all">
-            <Mail className="h-5 w-5" /> {t.contact.cta}
+            <Instagram className="h-5 w-5" /> @{IG_USERNAME}
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </motion.a>
 
