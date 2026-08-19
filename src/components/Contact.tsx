@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
-import { Mail, Instagram, Linkedin, Github, ArrowRight } from "lucide-react";
+import { Instagram, Linkedin, ArrowRight } from "lucide-react";
+
+const IG_USERNAME = "charolin.sa";
+const IG_URL = `https://instagram.com/${IG_USERNAME}`;
 
 export function Contact() {
   const { t } = useI18n();
   const socials = [
-    { Icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { Icon: Github, href: "https://github.com", label: "GitHub" },
-    { Icon: Mail, href: "mailto:hello@example.com", label: "Email" },
+    { Icon: Instagram, href: IG_URL, label: "Instagram" },
+    { Icon: Linkedin, href: `https://www.linkedin.com/in/${IG_USERNAME}`, label: "LinkedIn" },
   ];
   return (
     <section id="contact" className="relative py-32 px-6">
