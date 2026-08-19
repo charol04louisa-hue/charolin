@@ -33,21 +33,22 @@ export function Contact() {
           <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight gradient-text">{t.contact.title}</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">{t.contact.subtitle}</p>
 
-          <motion.a href={IG_URL} target="_blank" rel="noreferrer"
+          <motion.a href={`mailto:${EMAIL}`}
             whileHover={{ scale: 1.03 }}
             className="group mt-10 inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-glow-strong)] transition-all">
-            <Instagram className="h-5 w-5" /> @{IG_USERNAME}
+            <Mail className="h-5 w-5" /> {EMAIL}
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </motion.a>
 
           <div className="mt-10">
             <div className="text-xs uppercase tracking-widest text-muted-foreground mb-4">{t.contact.or}</div>
-            <div className="flex items-center justify-center gap-3">
-              {socials.map(({ Icon, href, label }) => (
-                <motion.a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {socials.map(({ Icon, href, label, username }) => (
+                <motion.a key={label} href={href} target={label === "Email" ? undefined : "_blank"} rel={label === "Email" ? undefined : "noreferrer"} aria-label={label}
                   whileHover={{ y: -4, scale: 1.05 }}
-                  className="group flex h-14 w-14 items-center justify-center rounded-2xl glass hover:glow-border transition-all">
-                  <Icon className="h-6 w-6 text-foreground/80 group-hover:text-primary transition-colors" />
+                  className="group inline-flex items-center gap-3 rounded-2xl glass hover:glow-border transition-all px-4 py-3">
+                  <Icon className="h-5 w-5 text-foreground/80 group-hover:text-primary transition-colors" />
+                  <span className="text-sm font-medium text-foreground/90">{username}</span>
                 </motion.a>
               ))}
             </div>
