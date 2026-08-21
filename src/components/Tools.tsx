@@ -125,7 +125,7 @@ const tools = [
 
 function SkillBar({ level, color }: { level: number; color: string }) {
   return (
-    <div className="h-1 w-full rounded-full bg-white/10 overflow-hidden">
+    <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
       <motion.div
         initial={{ width: 0 }}
         whileInView={{ width: `${level}%` }}
@@ -150,13 +150,13 @@ function Lettermark({
   size?: "sm" | "md" | "lg";
 }) {
   const sizeClasses = {
-    sm: "w-10 h-10 text-sm",
-    md: "w-14 h-14 text-lg",
+    sm: "w-12 h-12 text-sm",
+    md: "w-16 h-16 text-xl",
     lg: "w-20 h-20 text-3xl",
   };
   return (
     <div
-      className={`${sizeClasses[size]} rounded-2xl flex items-center justify-center font-display font-bold shadow-lg`}
+      className={`${sizeClasses[size]} rounded-2xl flex items-center justify-center font-display font-bold shadow-lg shrink-0`}
       style={{
         background: gradient,
         color: lightMark ? "#0F172A" : "#FFFFFF",
@@ -168,6 +168,18 @@ function Lettermark({
   );
 }
 
+function CategoryChip({ tool }: { tool: (typeof tools)[number] }) {
+  const cat = categories.find((c) => c.key === tool.category)!;
+  return (
+    <span
+      className="px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider"
+      style={{ background: `${tool.glow}18`, color: tool.glow }}
+    >
+      {cat.label}
+    </span>
+  );
+}
+
 export function Tools() {
   const { t } = useI18n();
   const featured = tools.filter((t) => t.category === "ai");
@@ -176,7 +188,7 @@ export function Tools() {
   return (
     <section id="tools" className="relative py-32 px-6">
       <div className="mx-auto max-w-6xl">
-        <SectionHeader eyebrow="03 — Stack" title={t.tools.title} subtitle={t.tools.subtitle} />
+        <SectionHeader eyebrow="03 — Stack" title={t.tools.title} subtitle={t.tools.subtitle} align="center" />
 
         {/* Category legend */}
         <motion.div
@@ -184,7 +196,7 @@ export function Tools() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-3 mb-14"
         >
           {categories.map((cat) => (
             <div
@@ -199,91 +211,69 @@ export function Tools() {
 
         {/* Featured AI row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-          {featured.map((tool, i) => {
-            const cat = categories.find((c) => c.key === tool.category)!;
-            return (
-              <motion.div
-                key={tool.name}
-                initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08, type: "spring" }}
-                whileHover={{ y: -6, scale: 1.02 }}
-                className="group relative rounded-3xl glass p-6 overflow-hidden cursor-pointer hover:glow-border transition-all"
-                style={{ "--glow-color": tool.glow } as React.CSSProperties}
-              >
-                <div
-                  className="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-20 group-hover:opacity-35 blur-2xl transition-opacity"
-                  style={{ background: tool.gradient }}
-                />
-                <div className="relative flex flex-col h-full">
-                  <div className="flex items-start justify-between mb-4">
-                    <Lettermark mark={tool.mark} gradient={tool.gradient} lightMark={tool.lightMark} size="md" />
-                    <span
-                      className="px-2 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider"
-                      style={{ background: `${tool.glow}20`, color: tool.glow }}
-                    >
-                      {cat.label}
-                    </span>
+          {featured.map((tool, i) => (
+            <motion.div
+              key={tool.name}
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08, type: "spring" }}
+              whileHover={{ y: -6 }}
+              className="group relative flex flex-col items-center text-center rounded-3xl glass p-6 overflow-hidden cursor-pointer hover:glow-border transition-all h-full"
+              style={{ "--glow-color": tool.glow } as React.CSSProperties}
+            >
+              <div
+                className="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-20 group-hover:opacity-35 blur-2xl transition-opacity"
+                style={{ background: tool.gradient }}
+              />
+              <div className="relative flex flex-col items-center h-full w-full">
+                <Lettermark mark={tool.mark} gradient={tool.gradient} lightMark={tool.lightMark} size="md" />
+                <CategoryChip tool={tool} />
+                <h3 className="mt-3 text-xl font-display font-bold">{tool.name}</h3>
+                <p className="mt-1 text-xs text-foreground/60 leading-relaxed max-w-[16rem]">{tool.desc}</p>
+                <div className="mt-auto w-full pt-5">
+                  <div className="flex justify-between text-[10px] text-foreground/50 mb-1.5">
+                    <span>Proficiency</span>
+                    <span>{tool.level}%</span>
                   </div>
-                  <h3 className="text-xl font-display font-bold mb-1">{tool.name}</h3>
-                  <p className="text-xs text-foreground/60 mb-4 leading-relaxed">{tool.desc}</p>
-                  <div className="mt-auto">
-                    <div className="flex justify-between text-[10px] text-foreground/50 mb-1.5">
-                      <span>Proficiency</span>
-                      <span>{tool.level}%</span>
-                    </div>
-                    <SkillBar level={tool.level} color={tool.glow} />
-                  </div>
+                  <SkillBar level={tool.level} color={tool.glow} />
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Bento grid for remaining tools */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          {grid.map((tool, i) => {
-            const cat = categories.find((c) => c.key === tool.category)!;
-            const isWide = tool.name === "Notion" || tool.name === "Lovable";
-            return (
-              <motion.div
-                key={tool.name}
-                initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: 0.3 + i * 0.06, type: "spring" }}
-                whileHover={{ y: -8, scale: 1.04 }}
-                className={`group relative rounded-2xl glass p-5 flex flex-col items-center justify-center text-center cursor-pointer hover:glow-border transition-all ${
-                  isWide ? "lg:col-span-2" : ""
-                }`}
-                style={{ "--glow-color": tool.glow } as React.CSSProperties}
-              >
+        {/* Uniform tool grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {grid.map((tool, i) => (
+            <motion.div
+              key={tool.name}
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.2 + i * 0.06, type: "spring" }}
+              whileHover={{ y: -6 }}
+              className="group relative flex flex-col items-center justify-center text-center rounded-2xl glass p-5 min-h-[10rem] cursor-pointer hover:glow-border transition-all"
+              style={{ "--glow-color": tool.glow } as React.CSSProperties}
+            >
+              <div
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
+                style={{
+                  background: `radial-gradient(circle at 50% 0%, ${tool.glow}25, transparent 70%)`,
+                }}
+              />
+              <div className="relative flex flex-col items-center">
+                <Lettermark mark={tool.mark} gradient={tool.gradient} lightMark={tool.lightMark} size="sm" />
+                <div className="mt-3 text-sm font-display font-bold">{tool.name}</div>
                 <div
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{
-                    background: `radial-gradient(circle at 50% 0%, ${tool.glow}30, transparent 70%)`,
-                  }}
-                />
-                <div className="relative">
-                  <motion.div
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ duration: 4 + (i % 3), repeat: Infinity, delay: i * 0.15 }}
-                    className="mb-3"
-                  >
-                    <Lettermark mark={tool.mark} gradient={tool.gradient} lightMark={tool.lightMark} size="sm" />
-                  </motion.div>
-                  <div className="text-sm font-display font-bold mb-1">{tool.name}</div>
-                  <div
-                    className="text-[10px] font-medium uppercase tracking-wider opacity-0 group-hover:opacity-100 -translate-y-1 group-hover:translate-y-0 transition-all"
-                    style={{ color: tool.glow }}
-                  >
-                    {cat.label}
-                  </div>
+                  className="mt-1 text-[10px] font-medium uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{ color: tool.glow }}
+                >
+                  {categories.find((c) => c.key === tool.category)!.label}
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
