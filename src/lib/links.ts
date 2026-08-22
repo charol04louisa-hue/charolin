@@ -4,8 +4,9 @@ export const IG_URL = `https://instagram.com/${IG_USERNAME}`;
 export const LINKEDIN_NAME = "Charolin Louisa Aipassa";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/charolin-louisa-aipassa";
 
+export const GITHUB_URL = "https://github.com/charol04louisa-hue";
+
 // Not provided yet — leave empty so the UI renders a clearly marked placeholder.
-export const GITHUB_URL = "";
 export const RESUME_URL = "";
 export const PROJECTS_URL = "";
 

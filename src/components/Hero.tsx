@@ -1,12 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, ArrowRight, Users, FileText, Github, Linkedin } from "lucide-react";
+import { Sparkles, ArrowRight, Users, Github, Linkedin } from "lucide-react";
 import profile from "@/assets/profile-cutout.png";
 import aiForEveryone from "@/assets/ai-for-everyone.jpeg";
 import growWithAi from "@/assets/growwithai.jpeg";
 import genDigital from "@/assets/gendigital.jpeg";
 import { useI18n } from "@/lib/i18n";
 import { CtaLink } from "./CtaLink";
-import { PROJECTS_URL, RESUME_URL, GITHUB_URL, LINKEDIN_URL } from "@/lib/links";
+import { PROJECTS_URL, GITHUB_URL, LINKEDIN_URL } from "@/lib/links";
 
 const orgs = [
   { src: aiForEveryone, label: "AI For Everyone", period: "2025 — Present", x: "-12%", y: "8%", size: 130, delay: 0.6, rot: -8 },
@@ -59,9 +59,6 @@ export function Hero() {
                 <CtaLink href={PROJECTS_URL} className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-glow-strong)] transition-all hover:-translate-y-0.5">
                   {t.hero.cta1}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </CtaLink>
-                <CtaLink href={RESUME_URL} className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold hover:glow-border transition-all">
-                  <FileText className="h-4 w-4 text-primary" /> {t.hero.cta2}
                 </CtaLink>
                 <CtaLink href={GITHUB_URL} className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold hover:glow-border transition-all">
                   <Github className="h-4 w-4 text-primary" /> {t.hero.cta3}

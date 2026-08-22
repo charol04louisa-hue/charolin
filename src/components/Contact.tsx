@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
-import { Instagram, Linkedin, Mail, ArrowRight, Github, FileText } from "lucide-react";
+import { Instagram, Linkedin, Mail, ArrowRight, Github } from "lucide-react";
 import { CtaLink } from "./CtaLink";
-import { EMAIL, IG_USERNAME, IG_URL, LINKEDIN_NAME, LINKEDIN_URL, GITHUB_URL, RESUME_URL } from "@/lib/links";
+import { EMAIL, IG_USERNAME, IG_URL, LINKEDIN_NAME, LINKEDIN_URL, GITHUB_URL } from "@/lib/links";
 
 export function Contact() {
   const { t } = useI18n();
@@ -51,9 +51,6 @@ export function Contact() {
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <CtaLink href={GITHUB_URL} className="inline-flex items-center gap-2 rounded-2xl glass px-4 py-3 text-sm font-medium hover:glow-border transition-all">
                 <Github className="h-5 w-5 text-foreground/80" /> GitHub
-              </CtaLink>
-              <CtaLink href={RESUME_URL} className="inline-flex items-center gap-2 rounded-2xl glass px-4 py-3 text-sm font-medium hover:glow-border transition-all">
-                <FileText className="h-5 w-5 text-foreground/80" /> {t.contact.resume}
               </CtaLink>
             </div>
           </div>
