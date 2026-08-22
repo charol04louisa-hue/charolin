@@ -1,10 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, ArrowRight, Mail, Users } from "lucide-react";
+import { Sparkles, ArrowRight, Users, FileText, Github, Linkedin } from "lucide-react";
 import profile from "@/assets/profile-cutout.png";
 import aiForEveryone from "@/assets/ai-for-everyone.jpeg";
 import growWithAi from "@/assets/growwithai.jpeg";
 import genDigital from "@/assets/gendigital.jpeg";
 import { useI18n } from "@/lib/i18n";
+import { CtaLink } from "./CtaLink";
+import { PROJECTS_URL, RESUME_URL, GITHUB_URL, LINKEDIN_URL } from "@/lib/links";
 
 const orgs = [
   { src: aiForEveryone, label: "AI For Everyone", period: "2025 — Present", x: "-12%", y: "8%", size: 130, delay: 0.6, rot: -8 },
