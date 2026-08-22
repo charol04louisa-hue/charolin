@@ -19,9 +19,9 @@ export function Certifications() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="certs" className="relative py-32 px-6">
+    <section id="achievements" className="relative py-32 px-6">
       <div className="mx-auto max-w-6xl">
-        <SectionHeader eyebrow="05 — Credentials" title={t.certs.title} subtitle={t.certs.subtitle} />
+        <SectionHeader eyebrow="06 — Achievements" title={t.achievements.title} subtitle={t.achievements.subtitle} />
 
         {/* Featured */}
         <motion.div
@@ -37,7 +37,7 @@ export function Certifications() {
                 className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-all">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity rounded-full glass-strong px-4 py-2 inline-flex items-center gap-2 text-sm font-semibold">
-                  <ZoomIn className="h-4 w-4 text-primary" /> {t.certs.view}
+                  <ZoomIn className="h-4 w-4 text-primary" /> {t.achievements.view}
                 </div>
               </div>
             </div>
@@ -66,7 +66,7 @@ export function Certifications() {
                 <img src={c.img} alt={c.title} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-all">
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity rounded-full glass-strong px-3 py-1.5 inline-flex items-center gap-2 text-xs font-semibold">
-                    <ZoomIn className="h-3.5 w-3.5 text-primary" /> {t.certs.view}
+                    <ZoomIn className="h-3.5 w-3.5 text-primary" /> {t.achievements.view}
                   </div>
                 </div>
               </div>

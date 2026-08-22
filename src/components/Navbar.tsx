@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Languages } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
-const sections = ["about", "experience", "tools", "leadership", "certs", "contact"] as const;
+const sections = ["about", "experience", "tools", "exploring", "leadership", "achievements", "contact"] as const;
 
 export function Navbar() {
   const { t, lang, setLang } = useI18n();

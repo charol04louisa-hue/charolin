@@ -1,10 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, ArrowRight, Mail, Users } from "lucide-react";
+import { Sparkles, ArrowRight, Users, FileText, Github, Linkedin } from "lucide-react";
 import profile from "@/assets/profile-cutout.png";
 import aiForEveryone from "@/assets/ai-for-everyone.jpeg";
 import growWithAi from "@/assets/growwithai.jpeg";
 import genDigital from "@/assets/gendigital.jpeg";
 import { useI18n } from "@/lib/i18n";
+import { CtaLink } from "./CtaLink";
+import { PROJECTS_URL, RESUME_URL, GITHUB_URL, LINKEDIN_URL } from "@/lib/links";
 
 const orgs = [
   { src: aiForEveryone, label: "AI For Everyone", period: "2025 — Present", x: "-12%", y: "8%", size: 130, delay: 0.6, rot: -8 },
@@ -42,20 +44,31 @@ export function Hero() {
                 ))}
               </h1>
 
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}
-                className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
+              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.85 }}
+                className="mt-6 max-w-xl text-xl md:text-2xl font-light text-foreground/90 leading-snug">
                 {t.hero.tagline}
+              </motion.p>
+
+              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.95 }}
+                className="mt-4 max-w-xl text-base text-muted-foreground leading-relaxed">
+                {t.hero.support}
               </motion.p>
 
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1 }}
                 className="mt-8 flex flex-wrap gap-3">
-                <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-glow-strong)] transition-all hover:-translate-y-0.5">
-                  <Mail className="h-4 w-4" /> {t.hero.cta1}
+                <CtaLink href={PROJECTS_URL} className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-glow-strong)] transition-all hover:-translate-y-0.5">
+                  {t.hero.cta1}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-                <a href="#experience" className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold hover:glow-border transition-all">
-                  {t.hero.cta2}
-                </a>
+                </CtaLink>
+                <CtaLink href={RESUME_URL} className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold hover:glow-border transition-all">
+                  <FileText className="h-4 w-4 text-primary" /> {t.hero.cta2}
+                </CtaLink>
+                <CtaLink href={GITHUB_URL} className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold hover:glow-border transition-all">
+                  <Github className="h-4 w-4 text-primary" /> {t.hero.cta3}
+                </CtaLink>
+                <CtaLink href={LINKEDIN_URL} className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold hover:glow-border transition-all">
+                  <Linkedin className="h-4 w-4 text-primary" /> {t.hero.cta4}
+                </CtaLink>
               </motion.div>
             </motion.div>
           </AnimatePresence>

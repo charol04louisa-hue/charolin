@@ -44,6 +44,37 @@ export function Experience() {
                   <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-all group-hover:text-primary group-hover:rotate-45" />
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-foreground/80">{item.desc}</p>
+
+                <div className="mt-4">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-primary">{t.experience.labels.responsibilities}</div>
+                  <ul className="mt-2 space-y-1.5">
+                    {item.responsibilities.map((r) => (
+                      <li key={r} className="flex gap-2 text-xs leading-relaxed text-foreground/75">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />{r}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-4">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-primary">{t.experience.labels.impact}</div>
+                  <ul className="mt-2 space-y-1.5">
+                    {item.impact.map((r) => (
+                      <li key={r} className="flex gap-2 text-xs leading-relaxed text-foreground/75">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />{r}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-4">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-primary">{t.experience.labels.skills}</div>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {item.skills.map((sk) => (
+                      <span key={sk} className="rounded-full glass px-2.5 py-1 text-[10px] font-medium text-foreground/80">{sk}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.article>
           ))}
